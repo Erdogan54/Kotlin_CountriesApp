@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="country"
+            type="com.ozgurerdogan.kotlin_countrylist.model.Country" />
+        <variable
+            name="listener"
+            type="com.ozgurerdogan.kotlin_countrylist.adapter.CountryClickListener" />
+    </data>
+
+
+
+<LinearLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:onClick="@{listener::onCountryClicked}"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/countryUuidText"
+        android:visibility="gone"
+        android:text="@{String.valueOf(country.uuid)}"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+    <ImageView
+        android:layout_weight="4"
+        android:downloadUrl="@{country.countryImageUrl}"
+        android:padding="3dp"
+        android:id="@+id/itemImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <LinearLayout
+        android:layout_marginStart="10dp"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical"
+        android:layout_weight="3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/countryNameTxtRecyclerView"
+            android:text="@{country.countryName}"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/countryRegionTxtRecyclerView"
+            android:text="@{country.countryRegion}"
+            android:padding="5dp"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
+</layout>
